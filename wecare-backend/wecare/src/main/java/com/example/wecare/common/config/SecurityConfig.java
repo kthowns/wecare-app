@@ -24,8 +24,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -42,7 +40,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // JWT 사용으로 세션 비활성화
                 .authorizeHttpRequests(authorize -> authorize
-                                .requestMatchers("/api/auth/signup", "/api/auth/login", "/error", "/swagger-ui/**", "/v3/api-docs/**").permitAll() // 인증 관련, 기본 에러, Swagger UI 경로 허용
+                                .requestMatchers("/api/auth/signup", "/api/auth/login", "/error").permitAll() // 인증 관련, 기본 에러, Swagger UI 경로 허용
+                                .requestMatchers("/api/api-spec", "/api/api-spec/swagger-config", "/api/my-docs", "/api/swagger-ui/**").permitAll()
                                 .anyRequest().authenticated() // 그 외 모든 요청은 인증 필요
                         //.anyRequest().permitAll() // 모든 요청 허용
                 )
@@ -57,8 +56,7 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:63342", "http://localhost:8080", "http://localhost:3000",
-                "https://wecare.mobidic.shop"));
+        config.setAllowedOrigins(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
