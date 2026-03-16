@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /opt/wecare/
+            cd ${{ secrets.WORK_DIRECTORY }}
             echo "DB_HOST=${{ secrets.DB_HOST }}" > .env
             echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
             echo "DB_USER=${{ secrets.DB_USER }}" >> .env
