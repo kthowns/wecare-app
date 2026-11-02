@@ -4,7 +4,7 @@
 
 Goorm DeepDive 해커톤에서 개발한 Spring Boot + React Native 프로젝트입니다. 보호자와 피보호자가 초대 코드로 연결되어 복약, 식사, 활동 등의 일상 루틴을 관리하고 수행 기록과 메모를 공유합니다.
 
-이 저장소는 [WeCare-DeepDive/wecare-app](https://github.com/WeCare-DeepDive/wecare-app)의 fork입니다. 팀 프로젝트의 주요 기능과 fork 소유자 [kthowns](https://github.com/kthowns)의 기여를 함께 정리했습니다.
+이 저장소는 [WeCare-DeepDive/wecare-app](https://github.com/WeCare-DeepDive/wecare-app)의 fork입니다. 팀 프로젝트의 주요 기능과 제 기여를 함께 정리했습니다.
 
 ## 주요 기능
 
